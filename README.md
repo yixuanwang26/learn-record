@@ -3,7 +3,7 @@
 ## point
 
 - [x] [Markdown](/markdown.md)
-- [ ] git-workflow
+- [x] git-workflow
 - [ ] flex 布局
 - [ ] 服务端渲染
 - [ ] 前端规范、标准
@@ -17,7 +17,8 @@
 - [ ] Typescript
 
 
-问题：
+## question
+
 - [ ] React 什么时候用方法什么时候用类
 - [ ] Css 选择器权重问题
 
