@@ -3,7 +3,7 @@
 ## point
 
 - [x] [Markdown](/markdown.md)
-- [x] git-workflow
+- [x] [git-workflow](/git-workflow.md)
 - [ ] flex 布局
 - [ ] 服务端渲染
 - [ ] 前端规范、标准
