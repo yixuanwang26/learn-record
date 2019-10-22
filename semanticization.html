@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://localhost:8000/user/logView -->
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>html 语义化</title>
+        <style>
+            #semanticization {
+                margin: 16px 64px;
+                padding: 32px;
+                background: #eee;
+            }
+            table,table tr th,table tr td{
+                border: 1px solid #ccc;
+            }
+            table{
+                 border-collapse: collapse;
+                 width: 100%;
+                background: #fff;
+            }
+
+            table tr td:first-child {
+                text-align: center;
+            }
+
+
+   
+        </style>
+    </head>
+    <body>
+        <div id="semanticization">
+            <h2>内容分区</h2>
+            <table>
+                <tr>
+                    <th>元素</th>
+                    <th>描述</th>
+                    <th>例子</th>
+                </tr>
+                <tr>
+                    <td>&lt;address&gt;</td>
+                    <td>地址</td>
+                    <td><address>上海市黄浦区东山大道 23 号</address></td>
+                </tr>
+                <tr>
+                    <td>&lt;article&gt;</td>
+                    <td>文章的段落，现在一般用于论坛的一段内容，评论等。指可重复的部分。</td>
+                    <td><article>今年上海将举行 xxx 比赛，届时...</article></td>
+                </tr>
+                <tr>
+                    <td>&lt;aside&gt;</td>
+                    <td>与当前页面其他的部分完全没有关系，可以单独被裁去的内容</td>
+                    <td><aside>这个什么什么只是补充</aside></td>
+                </tr>
+                <tr>
+                    <td>&lt;hgroup&gt;</td>
+                    <td>当有两个以上的 &lt;h&gt; 标签时，可以将他们分为一组，用 &lt;hgroup&gt; 包裹</td>
+                    <td>
+                        <hgroup>
+                            <h1>大标题</h1>
+                            <h3>副标题</h3>
+                        </hgroup>
+                    </td>
+                </tr>  
+                <tr>
+                    <td>&lt;main&gt;</td>
+                    <td>&lt;body&gt;中的主题部分，其中包含的部分不能有重复性，应当是独一无二的。</td>
+                    <td>
+                        <main>
+                            文章的内容
+                        </main>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&lt;nav&gt;</td>
+                    <td>&lt;nav&gt;一般用来包裹网页中的导航部分</td>
+                    <td>
+                        <nav>
+                            <ul>
+                                <li>菜单一</li>
+                                <li>菜单二</li>
+                                <li>菜单三</li>
+                            </ul>
+                        </nav>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&lt;section&gt;</td>
+                    <td>&lt;section&gt;一般用在文档大纲，里面会有一个标题和一些内容。不应当将其当做&lt;div&gt;来使用</td>
+                    <td>
+                        <section>
+                            <h2>标题</h2>
+                            <p>文档内容啦啦啦</p>
+                        </section>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&lt;blockquote&gt;</td>
+                    <td>&lt;blockquote&gt;一般用在指出引用的内容，会有缩进。url 部分可以设置于特性 site 上</td>
+                    <td>
+                        <blockquote cite='www.baidu.com'>
+                            据科学研究 xxx 植物具有安神，稳定情绪的功效。
+                        </blockquote>
+                    </td>
+                </tr>                   
+            </table>
+            <h2>文本内容</h2>
+            <table>
+                <tr>
+                    <th>元素</th>
+                    <th>描述</th>
+                    <th>例子</th>
+                </tr>
+                <tr>
+                    <td>&lt;dd&gt;</td>
+                    <td>描述列表&lt;dl&gt;中的描述字段,必须要跟在一个&lt;dt&gt;之后，&lt;dt&gt;表示所描述的内容</td>
+                    <td>
+                        <dl>
+                            <dt>苹果</dt>
+                            <dd>一种水果</dd>
+                            <dt>土豆</dt>
+                            <dd>一种蔬菜</dd>
+                        </dl>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&lt;article&gt;</td>
+                    <td>文章的段落，现在一般用于论坛的一段内容，评论等。指可重复的部分。</td>
+                    <td><article>今年上海将举行 xxx 比赛，届时...</article></td>
+                </tr>
+                <tr>
+                    <td>&lt;aside&gt;</td>
+                    <td>与当前页面其他的部分完全没有关系，可以单独被裁去的内容</td>
+                    <td><aside>这个什么什么只是补充</aside></td>
+                </tr>
+                <tr>
+                    <td>&lt;hgroup&gt;</td>
+                    <td>当有两个以上的 &lt;h&gt; 标签时，可以将他们分为一组，用 &lt;hgroup&gt; 包裹</td>
+                    <td>
+                        <hgroup>
+                            <h1>大标题</h1>
+                            <h3>副标题</h3>
+                        </hgroup>
+                    </td>
+                </tr>  
+                <tr>
+                    <td>&lt;main&gt;</td>
+                    <td>&lt;body&gt;中的主题部分，其中包含的部分不能有重复性，应当是独一无二的。</td>
+                    <td>
+                        <main>
+                            文章的内容
+                        </main>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&lt;nav&gt;</td>
+                    <td>&lt;nav&gt;一般用来包裹网页中的导航部分</td>
+                    <td>
+                        <nav>
+                            <ul>
+                                <li>菜单一</li>
+                                <li>菜单二</li>
+                                <li>菜单三</li>
+                            </ul>
+                        </nav>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&lt;section&gt;</td>
+                    <td>&lt;section&gt;一般用在文档大纲，里面会有一个标题和一些内容。不应当将其当做&lt;div&gt;来使用</td>
+                    <td>
+                        <section>
+                            <h2>标题</h2>
+                            <p>文档内容啦啦啦</p>
+                        </section>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&lt;blockquote&gt;</td>
+                    <td>&lt;blockquote&gt;一般用在指出引用的内容，会有缩进。url 部分可以设置于特性 site 上</td>
+                    <td>
+                        <blockquote cite='www.baidu.com'>
+                            据科学研究 xxx 植物具有安神，稳定情绪的功效。
+                        </blockquote>
+                    </td>
+                </tr>                   
+            </table>
+        </div>
+    </body>
+</html>
