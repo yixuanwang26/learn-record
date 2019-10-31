@@ -125,66 +125,370 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>&lt;article&gt;</td>
-                    <td>文章的段落，现在一般用于论坛的一段内容，评论等。指可重复的部分。</td>
-                    <td><article>今年上海将举行 xxx 比赛，届时...</article></td>
-                </tr>
-                <tr>
-                    <td>&lt;aside&gt;</td>
-                    <td>与当前页面其他的部分完全没有关系，可以单独被裁去的内容</td>
-                    <td><aside>这个什么什么只是补充</aside></td>
-                </tr>
-                <tr>
-                    <td>&lt;hgroup&gt;</td>
-                    <td>当有两个以上的 &lt;h&gt; 标签时，可以将他们分为一组，用 &lt;hgroup&gt; 包裹</td>
+                    <td>&lt;figcaption&gt;</td>
+                    <td>用于描述其父元素&lt;figure&gt;中其他内容，标题 or 描述，必须为&lt;figure&gt;的第一个或最后一个元素。&lt;figure&gt;中的内容不包含在主体的提纲中。相同情况的有&lt;blockquote&gt;, &lt;details&gt;, &lt;fieldset&gt;, &lt;figure&gt; 和&lt;td&gt;。</td>
                     <td>
-                        <hgroup>
-                            <h1>大标题</h1>
-                            <h3>副标题</h3>
-                        </hgroup>
+                        <figure>
+                            <img src='https://pic2.zhimg.com/50/v2-19771f584d14e4688854a6e0880d5d9d_qhd.jpg' />
+                           <figcaption>知乎图片</figcaption>
+                        </figure>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&lt;pre&gt;</td>
+                    <td>&lt;pre&gt;中的内容会按照原本的内容显示，将会保留非紧跟其后的所有空格</td>
+                    <td>
+                        <pre>
+                            ---------------------------
+                          \   ^__^ 
+                           \  (oo)\_______
+                              (__)\       )\/\
+                                  ||----w |
+                                  ||     ||
+                        </pre>
+                    </td>
+                </tr>               
+            </table>
+            <h2>内联文本语义</h2>
+            <table>
+                <tr>
+                    <th>元素</th>
+                    <th>描述</th>
+                    <th>例子</th>
+                </tr>
+                <tr>
+                    <td>&lt;abbr&gt;</td>
+                    <td>缩写内容，有 title 属性，可以展示全称</td>
+                    <td>
+                        这是一种 <abbr title='javascript'>js</abbr> 语法
+                    </td>
+                </tr>
+                <tr>
+                    <td>&lt;bdo&gt;</td>
+                    <td>可以设置字符的排列顺序</td>
+                    <td>
+                        <bdo dir='rtl'>yayayaxixixi 合适</bdo>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&lt;data&gt;</td>
+                    <td>指定一个可由机器读取识别的内容，用 value 设置机器可识别的内容</td>
+                    <td>
+                       <data value='3967381398'>一种苹果（value 为UPC码）</data>
+                    </td>
+                </tr>   
+                <tr>
+                    <td>&lt;dfn&gt;</td>
+                    <td>定义一个术语。一般的规则是所包含的内容的 title 属性或者自己的 title 属性解释定义内容。一般是只在文章中使用一次，后续再出现相同的词不再使用，但可以用&lt;abbr&gt;继续解释，或者用&lt;a&gt;标签</td>
+                    <td>
+                        <dfn><abbr title='World-Wide Web'>WWW</abbr></dfn>
+                    </td>
+                </tr> 
+                <tr>
+                    <td>&lt;kbd&gt;</td>
+                    <td>包裹一个用户输入（按键)，将会有特殊样式</td>
+                    <td>
+                        <p>请按下 <kbd>Command</kbd> + <kbd>A</kbd> 键</p>
                     </td>
                 </tr>  
                 <tr>
-                    <td>&lt;main&gt;</td>
-                    <td>&lt;body&gt;中的主题部分，其中包含的部分不能有重复性，应当是独一无二的。</td>
+                    <td>&lt;mark&gt;</td>
+                    <td>用于高亮同一文章中显示有关联性的部分，与&lt;strong&gt;不同，不是为了语法高亮而高亮，重在展示高亮部分的关联性。例如搜索引擎的查询结果关键词高亮。</td>
                     <td>
-                        <main>
-                            文章的内容
-                        </main>
+                        <p>这一段中被搜索的关键词是：<mark>生活</mark></p>
                     </td>
                 </tr>
                 <tr>
-                    <td>&lt;nav&gt;</td>
-                    <td>&lt;nav&gt;一般用来包裹网页中的导航部分</td>
+                    <td>&lt;q&gt;</td>
+                    <td>与&lt;blockquote&gt;类似的引用，只是&lt;q&gt;为行内元素，只包含短的行内词语。前后会自动加引号</td>
                     <td>
-                        <nav>
-                            <ul>
-                                <li>菜单一</li>
-                                <li>菜单二</li>
-                                <li>菜单三</li>
-                            </ul>
-                        </nav>
+                        <p>他们总是说：<q>我总是虚度着时光。</q></p>
+                    </td>
+                </tr> 
+                <tr>
+                    <td>&lt;ruby&gt;</td>
+                    <td>与其相关的标签一共有四个：&lt;rb&gt;，&lt;rp&gt;，&lt;rt&gt;，&lt;rtc&gt;。用于标记东亚语言的字符注音。直接看用法。</td>
+                    <td>
+                        <p>方法一（使用&lt;rb&gt;分割字符）：</p>
+                        <p>
+                            <ruby>
+                                <rb>汉</rb><rb>字</rb>
+                                <rp>(</rp><rt>han</rt><rt>zi</rt><rp>)</rp>
+                            </ruby>
+                        </p>
+                        <p>方法二（不使用&lt;rb&gt;分割字符）：</p>
+                        <p>
+                            <ruby>
+                                汉 <rp>(</rp><rt>han</rt><rp>)</rp>
+                                字 <rp>(</rp><rt>zi</rt><rp>)</rp>
+                            </ruby>
+                        </p>
+                        <p>&lt;rtc&gt;用于设置语义注解：</p>
+                        <p>
+                            <ruby>
+                                汉 <rp>(</rp><rt>han</rt><rp>)</rp>
+                                字 <rp>(</rp><rt>zi</rt><rp>)</rp>
+                                <rtc>Chinese Character</rtc>
+                            </ruby>
+                        </p>
                     </td>
                 </tr>
                 <tr>
-                    <td>&lt;section&gt;</td>
-                    <td>&lt;section&gt;一般用在文档大纲，里面会有一个标题和一些内容。不应当将其当做&lt;div&gt;来使用</td>
+                    <td>&lt;s&gt;</td>
+                    <td>&lt;s&gt;标记已被删除的内容</td>
                     <td>
-                        <section>
-                            <h2>标题</h2>
-                            <p>文档内容啦啦啦</p>
-                        </section>
+                        <p>今日已完成的有：<s>可视化展示内容</s></p>
                     </td>
                 </tr>
                 <tr>
-                    <td>&lt;blockquote&gt;</td>
-                    <td>&lt;blockquote&gt;一般用在指出引用的内容，会有缩进。url 部分可以设置于特性 site 上</td>
+                    <td>&lt;samp&gt;</td>
+                    <td>&lt;samp&gt;展示计算机输出的内容</td>
                     <td>
-                        <blockquote cite='www.baidu.com'>
-                            据科学研究 xxx 植物具有安神，稳定情绪的功效。
-                        </blockquote>
+                        <p>最后控制台报了个错：<samp>Failed to load resource: the server responded with a status of 401 (Unauthorized)</samp></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&lt;sub&gt;</td>
+                    <td>&lt;sub&gt;用于展示低于主要文本水平线的某个字符</td>
+                    <td>
+                        <p>水的分子式：<span>H<sub>2</sub>O</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&lt;sup&gt;</td>
+                    <td>&lt;sup&gt;用于展示高于主要文本水平线的某个字符</td>
+                    <td>
+                        <p>计算：<span>2<sup>2</sup> = 4 </span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&lt;u&gt;</td>
+                    <td>&lt;u&gt;为被包裹的文本添加了下方的线，用于非文字式的标注。除了以标注为目的的使用，如果仅仅想加下划线可以使用属性 text-decoration </td>
+                    <td>
+                        <p>这句话中有一个<u>措</u>别字</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&lt;var&gt;</td>
+                    <td>&lt;var&gt;标记变量</td>
+                    <td>
+                        <p>方程式：<var>x</var> + <var>y</var> = 10</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&lt;wbr&gt;</td>
+                    <td>&lt;wbr&gt;可以用于建议分割位置，与软连字符差不多一样的用途，软连字符会自动在断节处加-,但是好像只适用于字母字符，且没有空格分隔的时候</td>
+                    <td>
+                       <p>Fernstraßen<wbr>bau<wbr>privat<wbr>finanzierungs<wbr>gesetz</p>
                     </td>
                 </tr>                   
+            </table>
+            <h2>图片和多媒体</h2>
+            <table>
+                <tr>
+                    <th>元素</th>
+                    <th>描述</th>
+                    <th>例子</th>
+                </tr>
+                <tr>
+                    <td>&lt;map&gt;</td>
+                    <td>&lt;map&gt;与&lt;area&gt;共同来定义一个图片的一些映射（一些可点击的区域）</td>
+                    <td>
+                        <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map'>示例</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&lt;audio&gt;</td>
+                    <td>&lt;audio&gt;可以在文档中表示音频内容，内容可以设置，当浏览器不支持该标签时显示内部的内容。具体可参考<a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio'>mdn-audio</a></td>
+                    <td>
+                        <figure>
+                            <figcaption>一首好听的歌：</figcaption>
+                            <audio
+                                controls
+                                src="./sematicization/t-rex-roar.mp3">
+                                    Your browser does not support the
+                                    <code>audio</code> element.
+                            </audio>
+                        </figure>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&lt;track&gt;</td>
+                    <td>&lt;track&gt;用于在&lt;audio&gt;和&lt;video&gt;中，显示字幕。</td>
+                    <td>
+                        <a href='https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/track'>&lt;track&gt; 使用的例子。</a>
+                    </td>
+                </tr>               
+            </table>
+            <h2>内嵌内容</h2>
+            <table>
+                <tr>
+                    <th>元素</th>
+                    <th>描述</th>
+                    <th>例子</th>
+                </tr>
+                <tr>
+                    <td>&lt;embed&gt;</td>
+                    <td>&lt;embed&gt;可嵌入一段内容，具体内容由外部应用程序或者浏览器插件决定。不要轻易使用，浏览器是否支持所需插件要提前确定。</td>
+                    <td>
+                        <a href='https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/embed'>示例</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&lt;object&gt;</td>
+                    <td>&lt;object&gt;表示引入外部资源。</td>
+                    <td>
+                        <object type="application/pdf"
+                            data="./sematicization/In-CC0.pdf"
+                            width="250"
+                            height="200">
+                        </object>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&lt;param&gt;</td>
+                    <td>&lt;param&gt;为&lt;object&gt;元素定义属性。</td>
+                    <td>
+                     <a href='https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/param'>具体</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&lt;picture&gt;</td>
+                    <td>&lt;picture&gt;中可设定多个&lt;source&gt;元素，和一个&lt;img&gt;元素，浏览器会根据最佳匹配度来选择最终显示的内容，如果没有合适的就展示&lt;img&gt;的内容</td>
+                    <td>
+                        <picture>
+                            <source srcset="./sematicization/surfer-240-200.jpg"
+                                    media="(min-width: 800px)">
+                            <img src="./sematicization/painted-hand-298-332.jpg" />
+                        </picture>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&lt;source&gt;</td>
+                    <td>&lt;source&gt;为一个空元素，为&lt;picture&gt;等元素提供可供选择的素材内容，由不同浏览器和媒体类型进行选择。</td>
+                    <td>
+                        <p>上面的&lt;picture&gt;例子中使用了&lt;source&gt;,更多属性可以查看 <a href='https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/source'>MDN-source</a></p>
+                    </td>
+                </tr>                   
+            </table>
+            <h2>表单</h2>
+            <table>
+                <tr>
+                    <th>元素</th>
+                    <th>描述</th>
+                    <th>例子</th>
+                </tr>
+                <tr>
+                    <td>&lt;datalist&gt;</td>
+                    <td>&lt;datalist&gt;中是多个&lt;option&gt;元素，以此来确定某一组下拉框的选项</td>
+                    <td>
+                        <input list='data' />
+                        <datalist id='data'>
+                            <option value='a'>苹果</option>
+                            <option value='b'>橘子</option>
+                        </datalist>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&lt;fieldset&gt;</td>
+                    <td>&lt;fieldset&gt;定义了一组表单内容，可以进行集体控制</td>
+                    <td>
+                        <fieldset>
+                            <legend>Choose your favorite monster</legend>
+                        
+                            <input type="radio" id="kraken" name="monster">
+                            <label for="kraken">Kraken</label><br/>
+                        
+                            <input type="radio" id="sasquatch" name="monster">
+                            <label for="sasquatch">Sasquatch</label><br/>
+                        
+                            <input type="radio" id="mothman" name="monster">
+                            <label for="mothman">Mothman</label>
+                        </fieldset>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&lt;meter&gt;</td>
+                    <td>&lt;meter&gt;定义一段已知范围的标量值或者分数值</td>
+                    <td>
+                        <meter id="fuel"
+                        min="0" max="100"
+                        low="33" high="66" optimum="80"
+                        value="50">
+                        at 50/100
+                        </meter>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&lt;optgroup&gt;</td>
+                    <td>&lt;optgroup&gt;用于给下拉框的可选值进行分类</td>
+                    <td>
+                        <select id="dino-select">
+                            <optgroup label="Theropods">
+                                <option>Tyrannosaurus</option>
+                                <option>Velociraptor</option>
+                                <option>Deinonychus</option>
+                            </optgroup>
+                            <optgroup label="Sauropods">
+                                <option>Diplodocus</option>
+                                <option>Saltasaurus</option>
+                                <option>Apatosaurus</option>
+                            </optgroup>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&lt;output&gt;</td>
+                    <td>&lt;output&gt;用于表示用户输入所得到的结果</td>
+                    <td>
+                        <form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+                            <input type="range" name="b" value="50" /> +
+                            <input type="number" name="a" value="10" /> =
+                            <output name="result"></output>
+                        </form>
+                    </td>
+                </tr>    
+                <tr>
+                    <td>&lt;progress&gt;</td>
+                    <td>&lt;progress&gt;可以展示一条进度条</td>
+                    <td>
+                        <progress id="file" max="100" value="70"> 70% </progress>
+                    </td>
+                </tr>                 
+            </table>
+            <h2>交互元素</h2>
+            <table>
+                <tr>
+                    <th>元素</th>
+                    <th>描述</th>
+                    <th>例子</th>
+                </tr>
+                <tr>
+                    <td>&lt;details&gt;</td>
+                    <td>&lt;details&gt;相当于一个扩展面板</td>
+                    <td>
+                        <details>
+                            <summary>Details</summary>
+                            Something small enough to escape casual notice.
+                        </details>
+                                
+                    </td>
+                </tr>                
+            </table>
+            <h2>web组件</h2>
+            <table>
+                <tr>
+                    <th>元素</th>
+                    <th>描述</th>
+                    <th>例子</th>
+                </tr>
+                <tr>
+                    <td>&lt;template&gt;</td>
+                    <td>&lt;template&gt;可以先用来声明一些不会显示在 html中的元素，用以用 javascript 处理后进行展示</td>
+                    <td>
+                        <a href='https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/template'>示例</a>
+                    </td>
+                </tr>                
             </table>
         </div>
     </body>
