@@ -1,0 +1,58 @@
+// 基本使用  => 抽取基础样式，例如主题颜色等
+
+
+
+.banner1 {
+    @color: #ddd;
+    background-color: @color;
+}
+
+// 除了作为值，可以作为选择器，属性，url路径
+
+@c: content;
+
+.banner2 {
+    color: #555;
+    & > .@{c} {
+        color: #ddd;
+    }
+}
+
+// => 作为选择器我的感觉是用于命名有重复的地方
+
+@color: color;
+.banner3 {
+  @{color}: #ddd;
+  background-@{color}: #eee;
+}
+
+// => 同上，属性中命名重复的地方
+
+@url: "../../assets/";
+
+.banner4 {
+    background: url("@{url}banner4Img.png");
+}
+
+// => 例如图片路径等 前缀都一样的情况下就可以做这种处理
+
+
+// 另外变量值的选取有就近原则，例如
+
+.banner5 {
+    @color: #555;
+    .banner6 {
+        background-color: @color;
+        @color: #444;
+    }
+    background-color: @color;
+}
+
+// => 
+
+.banner5 .banner6 {
+    background-color: #444;
+}
+.banner5 {
+    background-color: #555;
+}

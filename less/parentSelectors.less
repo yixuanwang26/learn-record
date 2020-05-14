@@ -1,0 +1,64 @@
+// & 可以取到父级的类名，做进一步操作
+
+.banner1 {
+    & > div {
+        color: #333;
+    }
+}
+
+// 取到的是全部的父级而不是单一层
+
+.banner2 {
+    .spa {
+        & > div {
+            color: #333;
+        }
+    }
+}
+
+.banner3 {
+    .spa {
+        & > div {
+            color: #333;
+        }
+    }
+}
+
+// 可以拼接形成新的选择器
+
+.banner4 {
+    &-active {
+        color: red;
+    }
+    &-normal {
+        color: #333;
+    }
+}
+
+// 可以使用多次，改变顺序，进行混合等等
+
+.banner5 {
+    & + & {
+        color: #333;
+    }
+    &, &res {
+        color: #555;
+    }
+}
+
+.banner6 {
+    .title {
+        .content & {
+            color: #444;
+        }
+    }
+}
+
+.li, a, p {
+  & + & {
+      color: #666;
+  }
+}
+
+// 想到一个比较常用的是设置激活元素和普通元素的样式。
+
