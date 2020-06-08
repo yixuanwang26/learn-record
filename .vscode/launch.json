@@ -11,7 +11,7 @@
             // "skipFiles": [
             //     "<node_internals>/**"
             // ],
-            "program": "${workspaceFolder}/promise/test.js"
+            "program": "${workspaceFolder}/GrokkingAlgorithms/recursive.js"
         }
     ]
 }
