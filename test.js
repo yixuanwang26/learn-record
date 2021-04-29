@@ -1,32 +1,21 @@
-function getSingle(fn) {
-  var result;
-  return function () {
-    console.log('wer', result);
-    if (result) {
-      return result;
-    }
+// steps = 3, arrLen = 2
+// 4
 
-    result = fn.apply(this, arguments);
-    console.log('a', result);
-    return result;
-  }
-}
+// steps = 2, arrLen = 4
+// 2
 
-function Person() {
-  this.name = 'nena';
-}
+// steps = 4, arrLen = 2
+// 8
 
-Person.prototype.getName = function () {
-  return this.name;
-}
-
-function getPerson() {
-  return new Person();
-}
-
-const getSinglePerson = getSingle(getPerson);
-// const person2 = getSingle(getPerson);
-
-const p = getSinglePerson();
-const p2 = getSinglePerson();
-// console.log(person1 === person2);
+var numWays = function(steps, arrLen) {
+   const dp = [];
+   for(var i = 0; i<arrLen; i++) {
+     for(var j =1; j< steps + 1; j++) {
+       if(i === 0 ) {
+          // 当位置在 0 时还有 j 步，
+          dp[0][j] = j;
+          break;
+       }
+     }
+   }
+};

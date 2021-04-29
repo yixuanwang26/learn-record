@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- https://www.cnblogs.com/wilber2013/p/5811810.html -->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>发布订阅模式实现双向绑定</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pubsub-js/1.9.3/pubsub.min.js"
+        integrity="sha512-ASNLdxh5Knd0ESqUQE2hvUbXxOmu0y27vVVibROAKRomo+R6ocykvh0m8tE9qMEfmeVbEyNL1M6FvvyRKyZIoQ=="
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="comps">
+        我的名字叫：<input id="name" t-binding="user" oninput="changeInput(event)" />
+    </div>
+    <div class="show">
+        input 的值是<span id="inputValue" t-binding="user"></span>
+    </div>
+    <script>
+        listenerSub();
+        const model = createModel({ user: 'afe' });
+
+        function createModel(obj) {
+            // 初次赋值时填充至 ui 中
+            const origin = Object.keys(obj).reduce((pre, cur) => {
+                window.PubSub.publish('model-change-event', { key: cur, value: obj[cur] });
+                return { ...pre, [`_${cur}`]: obj[cur] };
+            }, {})
+
+            const defineObj = Object.keys(obj).reduce((pre, cur) => {
+                return {
+                    ...pre, [cur]: {
+                        set: (v) => {
+                            origin[`_${cur}`] = v;
+                            window.PubSub.publish('model-change-event', { key: cur, value: v });
+                        },
+                        get: () => origin[`_${cur}`]
+                    }
+                }
+            }, {})
+
+            return Object.defineProperties({}, defineObj);
+        }
+        function listenerSub() {
+            // 订阅事件 ui-change-event
+            window.PubSub.subscribe('ui-change-event', function (_, message) {
+                const { key, value } = message;
+                model[key] = value;
+            });
+            // 订阅时间 model-change-event
+            window.PubSub.subscribe('model-change-event', function (_, message) {
+                const { key, value } = message;
+                const element = document.querySelectorAll('[t-binding="' + key + '"]');
+
+                for (var i = 0, len = element.length; i < len; i++) {
+                    const elementType = element[i].tagName.toLowerCase();
+                    if (elementType === 'input') {
+                        element[i].value = value;
+                    } else {
+                        element[i].innerHTML = value;
+                    }
+
+                }
+            });
+        }
+        function changeInput(e) {
+            const key = e.target.getAttribute('t-binding');
+            window.PubSub.publish('ui-change-event', { key, value: e.target.value })
+        }
+    </script>
+</body>
+
+</html>
